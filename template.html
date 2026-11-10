@@ -1,0 +1,38 @@
+<html><head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;width:1080px;height:1350px;font-family:'Poppins',sans-serif;
+       background:linear-gradient(160deg,{{bg1}},{{bg2}});color:{{text}};
+       position:relative;overflow:hidden}
+  .m{position:absolute;opacity:.18}
+  .wrap{position:relative;height:100%;display:flex;flex-direction:column;
+        justify-content:center;align-items:center;text-align:center;
+        padding:90px 90px 230px;box-sizing:border-box}
+  .date{font-size:40px;letter-spacing:8px;color:{{accent}};font-weight:800}
+  .line{width:220px;height:6px;background:{{accent}};border-radius:3px;margin:40px 0}
+  h1{font-size:{{size}}px;font-weight:800;margin:0;line-height:1.1}
+  .tag{font-size:46px;font-style:italic;margin-top:50px;opacity:.95}
+  .venue{margin-top:70px;font-size:38px;background:{{accent}};color:{{bg1}};
+         padding:20px 50px;border-radius:60px;font-weight:800}
+  .logos{position:absolute;left:0;right:0;bottom:70px;display:flex;
+         justify-content:center;align-items:center;gap:60px;padding:0 80px}
+  .logos img{max-height:120px;max-width:280px;object-fit:contain}
+
+  /* minimal mode */
+  .minimal h1{font-weight:600}
+  .minimal .line{width:80px;height:3px}
+  .minimal .date{font-size:32px;font-weight:600}
+  .minimal .tag{font-size:40px;opacity:.8}
+  .minimal .venue{background:none;color:{{text}};font-size:30px;font-weight:400;
+                  padding:0;opacity:.7;letter-spacing:3px}
+</style></head><body class="{{cls}}">
+  {{motif}}
+  <div class="wrap">
+    <div class="date">{{date}}</div>
+    <div class="line"></div>
+    <h1>{{event}}</h1>
+    <div class="tag">{{tagline}}</div>
+    <div class="venue">{{venue}}</div>
+  </div>
+  <div class="logos">{{logos}}</div>
+</body></html>

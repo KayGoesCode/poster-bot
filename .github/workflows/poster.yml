@@ -1,0 +1,20 @@
+name: Daily poster
+on:
+  schedule:
+    - cron: "30 18 * * *"   # 18:30 UTC = 12:00 AM IST
+  workflow_dispatch:
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install playwright requests && playwright install --with-deps chromium
+      - run: python make_poster.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CALENDARIFIC_KEY: ${{ secrets.CALENDARIFIC_KEY }}
+          GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
